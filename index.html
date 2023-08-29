@@ -1,73 +1,261 @@
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MY CREATIONS</title>
-        <style>
-            body {
-                text-align: center;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh; /* Make sure the body covers the full viewport height */
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEAN'S CREATIONS</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            margin: 20px 0;
+        }
+
+        a {
+            color: #58d3f7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+            a:hover {
+                text-decoration: underline;
             }
 
-            h1, h2, h3 {
-                margin: 0 auto;
-            }
-            .responsive-iframe {
-                width: 100%;
-                height: auto;
-                align-content: center;
-                margin-bottom: -60px;
-                margin-top: -70ox
-            }
-            .footer {
-                background-color: #333;
-                color: white;
-                padding: 20px;
-                text-align: center;
-                height: auto;
-                margin-top: 100px;
+        .content {
+            padding: 40px;
+            max-width: 1100px;
+            margin: auto;
+            animation: fadeIn 1.5s;
+        }
 
+        .work-experience {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+            .work-experience h1 {
+                border-bottom: 2px solid #58d3f7;
+                display: inline-block;
             }
-        </style>
-    </head>
-    <body>
-        <!--WEBSITES-->
-        <h1>
-            WEBSITES
-        </h1> <br /><br /><br />
-        <!--POV-RADIO-->
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+            li::before {
+                content: '▹';
+                position: absolute;
+                left: 0;
+                color: #58d3f7;
+            }
+
+        .responsive-iframe {
+            width: 100%;
+            height: 500px; /* adjust this if needed */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .footer {
+            background-color: #1b1b1b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #444;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>JEAN'S RESUME</h1>
+
+        <!-- Summary Section -->
+        <div class="work-experience">
+            <h1>SUMMARY</h1>
+            <h2>"Secure a challenging and rewarding position..."</h2>
+        </div>
+
+        <!-- Education Section -->
+        <div class="work-experience">
+            <h1>EDUCATION</h1>
+            <h2>Dropped out of high school, in the middle of getting my GED</h2>
+        </div>
+
+        <!-- Work Experience Section -->
+        <div class="work-experience">
+            <h1>WORK EXPERIENCE</h1>
+            <!-- List out work experiences as per your original structure -->
+            <h2>MAGNAPEST</h2>
+            <ul>
+                <li>Pest Identification and Treatment</li>
+                <li>Safety and Regulatory Compliance</li>
+                <li> Client Communication</li>
+                <li>Problem Solving</li>
+                <li>Record Keeping and Reporting</li>
+            </ul>
+
+            <h2>PLS CHECK CASHING</h2>
+            <ul>
+                <li>Accurate Cash Handling</li>
+                <li> Customer Service Excellence</li>
+                <li> Transaction Processing</li>
+                <li> Conflict Resolution</li>
+                <li> Attention to Detail</li>
+            </ul>
+
+            <h2>TURNER INDUSTRIES</h2>
+            <ul>
+                <li>Team Collaboration</li>
+                <li>Project Task Division</li>
+                <li>Time Management</li>
+                <li>Safety Adherence</li>
+                <li>Project Milestone Achievement</li>
+            </ul>
+
+            <h2>US SECURITY ASSOCIATES</h2>
+            <ul>
+                <li> Security Protocols Implementation</li>
+                <li> Incident Handling</li>
+                <li> Emergency Response</li>
+                <li> Vigilance and Surveillance</li>
+                <li> Safety Awareness</li>
+            </ul>
+
+            <h2>DOMINOS</h2>
+            <ul>
+                <li> Order Management</li>
+                <li> Pizza Preparation and Baking</li>
+                <li> Customer Service</li>
+                <li> Multi-tasking in Fast-paced Environment</li>
+                <li> Attention to Food Quality</li>
+            </ul>
+
+            <h2>SCHLOTSKIES</h2>
+            <ul>
+                <li> Food Handling and Preparationy</li>
+                <li> Teamwork in Busy Shiftsy</li>
+                <li> Quality Controly</li>
+                <li> Customer Interactiony</li>
+                <li> Efficient Service Deliveryy</li>
+            </ul>
+
+            <h2>PIZZA HUT</h2>
+            <ul>
+                <li> Food Preparation</li>
+                <li> Delivery Coordination</li>
+                <li> Customer Interaction</li>
+                <li> Problem Solving in High-demand Situations</li>
+                <li> Timely Order Fulfillment</li>
+            </ul>
+
+            <h2>SUBWAY</h2>
+            <ul>
+                <li> Food Preparation</li>
+                <li> Hygiene and Safety Compliance</li>
+                <li> Customer Service</li>
+                <li> Attention to Dietary Preferences</li>
+                <li> Cleanliness and Orderliness</li>
+            </ul>
+
+            <h2>WALMART</h2>
+            <ul>
+                <li> Retail Operations</li>
+                <li> Inventory Management</li>
+                <li> Merchandising</li>
+                <li> Customer Assistance</li>
+                <li> Cash Handling and Transactions</li>
+            </ul>
+
+            <h2>MCDONALDS</h2>
+            <ul>
+                <li>Order Taking</li>
+                <li>Fast Food Preparation</li>
+                <li>Drive-thru Service Efficiency</li>
+                <li>Teamwork in Busy Shifts</li>
+                <li>Time Management</li>
+            </ul>
+
+        </div>
+
+        <!-- Skills Section -->
+        <div class="work-experience">
+            <h1>SKILLS</h1>
+            <ul>
+                <li>Customer Service</li>
+                <li>Communication</li>
+                <li>Time Management</li>
+                <li>Attention to Detail</li>
+                <li>Teamwork</li>
+                <li>Problem Solving</li>
+                <li>Cash Handling</li>
+                <li>Food Handling and Preparation</li>
+                <li>Security Awareness</li>
+                <li>Adaptability</li>
+                <li>Multi-tasking</li>
+                <li>Retail Operations</li>
+            </ul>
+        </div>
+
+        <!-- Websites Section -->
+        <h1>WEBSITES</h1>
         <h2>
             <a href="https://www.pov-radio.com">POV-RADIO.COM</a>
-            <h3>
-                <img src="https://static.wixstatic.com/media/6da749_64d7a1e42d3c4951aed7f94ef18a911e~mv2.jpg/v1/fill/w_335,h_95,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/pov-remini-enhanced.jpg"
-            </h3>  <br /><br /><br />  <br /><br /><br />
         </h2>
-        <!--ELEMENTS-->
-        <h1>
-            ELEMENTS
-        </h1>
-        <!--POV CHAT-->
-        <br />
-        <br />
-        <br />
+        <img src="https://static.wixstatic.com/media/6da749_83e3c88792c24b90a9f6ebe53ad7cd4b~mv2.jpeg/v1/fill/w_83,h_83,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Free_Sample_By_Wix.jpeg" alt="POV RADIO LOGO" style="max-width: 100%; border-radius: 8px; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);">
+
+        <!-- Elements Section -->
+        <h1>ELEMENTS</h1>
+
+        <!-- Chat -->
         <h2>POV RADIO CHAT</h2>
-        <h3>This is the chat box i've created for the station, this box disables the user from accessing the discord chat via the website and tells them to download discord! The chat will activate again once the countdown timer finishes.'</h3>
-        <div class="responsive-iframe">
-            <iframe src="elements/POVRADIO CHAT BLOCK.html" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
-        </div>
-        <!--EVENTS BOX-->
+        <p>This is the chat box I've created for the station. The chat will activate again once the countdown timer finishes.</p>
+        <iframe class="responsive-iframe" src="elements/POVRADIO CHAT BLOCK.html"></iframe>
+
+        <!-- Events -->
         <h2>POV RADIO EVENTS</h2>
-        <h3>I've created this events box for my mom! It displays the entire upcoming events, creates a countdown based on the given day, and dynamically moves the old shows to the previous shows! (Currently still in development!)'</h3>
-        <div class="responsive-iframe">
-            <iframe src="elements/POV RADIO EVENTS v1.html" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
-        </div>
-        <!--FOOTER-->
-        <div class="footer">
-            <p>Welcome to the TEST PAGE!</p>
-        </div>
+        <p>I've created this events box for my mom! It displays the entire upcoming events.</p>
+        <iframe class="responsive-iframe" src="elements/POV RADIO EVENTS v1.html"></iframe>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Welcome to the TEST PAGE!</p>
+    </div>
+
+</body>
+
 </html>
