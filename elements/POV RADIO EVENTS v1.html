@@ -29,7 +29,26 @@
             position: relative;
             color: white; /* Make text color white */
             text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Refined outline for the text */
+            overflow-y:auto;
+            height: 250px;
         }
+            .events-box::-webkit-scrollbar {
+                width: 10px; /* Width of the scrollbar */
+            }
+
+            .events-box::-webkit-scrollbar-track {
+                background-color: #6a1b9a; /* Darker purple, same as the box */
+                border-radius: 5px; /* Smooth rounded corners for the track */
+            }
+
+            .events-box::-webkit-scrollbar-thumb {
+                background-color: #a2d9ce; /* Pale green for the thumb */
+                border-radius: 5px; /* Smooth rounded corners for the thumb */
+            }
+
+                .events-box::-webkit-scrollbar-thumb:hover {
+                    background-color: rgba(156, 39, 176, 0.8); /* Translucent vibrant purple on hover */
+                }
 
         .tabs {
             display: flex;
@@ -187,7 +206,6 @@
         <div class="tabs">
             <div class="tab active-tab" onclick="showTab('upcoming')">Upcoming Shows</div>
             <div class="tab" onclick="showTab('past')">Past Shows</div>
-            <div class="tab" onclick="showTab('featured')">Featured Artists</div>
         </div>
 
         <div class="tab-content active-tab-content" id="upcoming">
