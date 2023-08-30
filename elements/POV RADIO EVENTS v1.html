@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Events Box with Tabs</title>
-	
+
     <style>
-	*, *::before, *::after {
-    box-sizing: border-box;
-}
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body, html {
             overflow-x: hidden;
             margin: 0;
             padding: 0;
-			font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         .events-box {
@@ -28,8 +29,8 @@
             position: relative;
             color: white; /* Make text color white */
             text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; /* Refined outline for the text */
-
         }
+
         .tabs {
             display: flex;
             margin-bottom: 20px;
@@ -46,9 +47,9 @@
             cursor: pointer;
         }
 
-        .tab:hover, .tab.active-tab {
-            background-color: #a2d9ce; /* Pale green for interactivity */
-        }
+            .tab:hover, .tab.active-tab {
+                background-color: #a2d9ce; /* Pale green for interactivity */
+            }
 
         .tab-content {
             display: none;
@@ -109,270 +110,333 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
-@media (max-width: 600px) {
-    .events-box {
-        padding: 10px;
-        margin: 20px auto;
-        padding-bottom: 50px;
-    }
+        @media (max-width: 600px) {
+            .events-box {
+                padding: 10px;
+                margin: 20px auto;
+                padding-bottom: 50px;
+            }
 
-    .tabs {
-        margin-bottom: 10px; /* Reduce space for the relocated DJ button */
-    }
+            .tabs {
+                margin-bottom: 10px; /* Reduce space for the relocated DJ button */
+            }
 
-    .tabs {
-        margin-bottom: 50px; /* Making space for the relocated DJ button */
-    }
+            .tabs {
+                margin-bottom: 50px; /* Making space for the relocated DJ button */
+            }
 
-    .tab {
-        padding: 8px;
-    }
+            .tab {
+                padding: 8px;
+            }
 
-    .show-item {
-        flex-direction: column;
-        align-items: center; /* Centering the content */
-        text-align: center; /* Centering the text */
-    }
+            .show-item {
+                flex-direction: column;
+                align-items: center; /* Centering the content */
+                text-align: center; /* Centering the text */
+            }
 
-    .show-details-container {
-        flex-direction: column;
-        align-items: center; /* Centering the content */
-    }
+            .show-details-container {
+                flex-direction: column;
+                align-items: center; /* Centering the content */
+            }
 
-    .band-image {
-        width: 60px;
-        height: 60px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
+            .band-image {
+                width: 60px;
+                height: 60px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
 
-    .show-details {
-        margin-bottom: 10px;
-    }
+            .show-details {
+                margin-bottom: 10px;
+            }
 
-    .date-countdown {
-        justify-content: center;
-        width: 100%;
-    }
+            .date-countdown {
+                justify-content: center;
+                width: 100%;
+            }
 
-    .show-date, .countdown-timer {
-        margin-right: 0;
-        margin-bottom: 5px;
-        padding: 7px 12px;
-        font-size: 14px;
-    }
+            .show-date, .countdown-timer {
+                margin-right: 0;
+                margin-bottom: 5px;
+                padding: 7px 12px;
+                font-size: 14px;
+            }
 
-    .countdown-timer {
-        width: 100%;
-    }
-}
+            .countdown-timer {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-<div class="events-box">
-    <div class="tabs">
-        <div class="tab active-tab" onclick="showTab('upcoming')">Upcoming Shows</div>
-        <div class="tab" onclick="showTab('past')">Past Shows</div>
-        <div class="tab" onclick="showTab('featured')">Featured Artists</div>
-    </div>
-
-     <div class="tab-content active-tab-content" id="upcoming">
-
-<div class="show-item" data-show-date="2023-08-26 18:00:00">
-    <div class="show-details-container">
-        <div class="show-details">
-            <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/300769471_100818012779522_3636210544809120517_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dga7SccOsasAX8d0CW1&_nc_ht=scontent-hou1-1.xx&oh=00_AfBHcEzm3w1JO5q1il1W53H3-pdMeaoQTikFDh4Dmqn5VA&oe=64E82A9D" alt="Band Name" class="band-image">
-            <div>
-                <strong>PSYCHO SHOW!!</strong><br>
-                <span>PSYCHO-MOM</span>
-            </div>
+    <div class="events-box">
+        <div class="tabs">
+            <div class="tab active-tab" onclick="showTab('upcoming')">Upcoming Shows</div>
+            <div class="tab" onclick="showTab('past')">Past Shows</div>
+            <div class="tab" onclick="showTab('featured')">Featured Artists</div>
         </div>
-        <div class="date-countdown">
-            <span class="show-date">August 26, 2023</span>
-            <span class="countdown-timer"></span>
-        </div>
-    </div>
-</div>
 
-<div class="show-item" data-show-date="2023-08-30 18:00:00">
-    <div class="show-details-container">
-        <div class="show-details">
-            <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/300769471_100818012779522_3636210544809120517_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dga7SccOsasAX8d0CW1&_nc_ht=scontent-hou1-1.xx&oh=00_AfBHcEzm3w1JO5q1il1W53H3-pdMeaoQTikFDh4Dmqn5VA&oe=64E82A9D" alt="Band Name" class="band-image">
-            <div>
-                <strong>POV PSYCHOMOM</strong><br>
-                <span>WEDNESDAY SPECIAL!</span>
-            </div>
-        </div>
-        <div class="date-countdown">
-            <span class="show-date">August 30, 2023</span>
-            <span class="countdown-timer"></span>
-        </div>
-    </div>
-</div>
+        <div class="tab-content active-tab-content" id="upcoming">
 
-
-    </div>
-
-    <div class="tab-content" id="past">
-        <!-- Past Shows are listed below -->
-        
-        <div class="show-item">
-            <div class="show-details-container">
-                <div class="show-details">
-                    <img src="placeholder.jpg" alt="Band Name" class="band-image"> <!-- Placeholder image as none was provided -->
-                    <div>
-                        <strong><a href="https://youtube.com/playlist?list=RDEM5TFdD4BrjuOIjCYJZA35Xg&playnext=1" target="_blank">Waking A Sleeper with Raven and Crew</a></strong><br>
-                        <span>January 28, 2023, 7:00 p.m. Central</span>
+            <div class="show-item" data-show-date="2023-09-02 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t1.6435-9/160726300_221727755979466_2315428375364364975_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=fV9J2DjpGLUAX_ggsiZ&_nc_ht=scontent-hou1-1.xx&oh=00_AfBegNF6xqZEbakzgB_ukD9j5pDL5wdKIXhhB1XAAbhm_Q&oe=65162679" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>SATURDAY SPECIAL!</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">September 2nd, 2023</span>
+                        <span class="countdown-timer"></span>
                     </div>
                 </div>
             </div>
+
+
         </div>
-        <div class="show-item">
-            <div class="show-details-container">
-                <div class="show-details">
-                    <img src="placeholder.jpg" alt="Band Name" class="band-image"> <!-- Placeholder image as none was provided -->
-                    <div>
-                        <strong><a href="https://youtube.com/@theashbean" target="_blank">Ashley Bean</a></strong><br>
-                        <span>March 4, 2023, 7:00 p.m. Central</span>
+
+        <div class="tab-content" id="past">
+            <!-- Past Shows are listed below -->
+            <div class="show-item" data-show-date="2023-01-28 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://yt3.ggpht.com/ytc/AOPolaQpYP0gSyavRI5sHMvtJLav6yODOdzDz1fRC8j5=s48-c-k-c0x00ffffff-no-rj" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Waking A Sleeper and <br /> Raven And The crew</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">January 28th, 2023</span>
+                        <span class="countdown-timer"></span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="show-item">
-            <div class="show-details-container">
-                <div class="show-details">
-                    <img src="placeholder.jpg" alt="Band Name" class="band-image"> <!-- Placeholder image as none was provided -->
-                    <div>
-                        <strong><a href="https://youtube.com/@simplestone" target="_blank">Simple Stone</a></strong><br>
-                        <span>March 11, 2023, 7:00 p.m. Central</span>
+            <div class="show-item" data-show-date="2023-03-04 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://yt3.googleusercontent.com/ytc/AOPolaRi1MjJkViQNxRXNlE83cwluSDvAnlezO3BdsBmBg=s176-c-k-c0x00ffffff-no-rj" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Ashley Bean</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">March 4th, 2023</span>
+                        <span class="countdown-timer"></span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="show-item">
-            <div class="show-details-container">
-                <div class="show-details">
-                    <img src="placeholder.jpg" alt="Band Name" class="band-image"> <!-- Placeholder image as none was provided -->
-                    <div>
-                        <strong><a href="https://youtube.com/@calypsosdagger" target="_blank">Calypso's Dagger</a></strong><br>
-                        <span>April 8, 2023, 7:00 p.m. Central</span>
+            <div class="show-item" data-show-date="2023-03-11 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://yt3.googleusercontent.com/ytc/AOPolaRMwbvB69ppadlXnhQg06mP93wP5lZMCsJiGjpy=s176-c-k-c0x00ffffff-no-rj" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Simple Stone</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">March 11th, 2023</span>
+                        <span class="countdown-timer"></span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="show-item">
-            <div class="show-details-container">
-                <div class="show-details">
-                    <img src="placeholder.jpg" alt="Band Name" class="band-image"> <!-- Placeholder image as none was provided -->
-                    <div>
-                        <strong><a href="https://youtube.com/@harmonicgeneration" target="_blank">Harmonic Generation</a></strong><br>
-                        <span>May 20, 2023, 7:00 p.m. Central</span>
+            <div class="show-item" data-show-date="2023-01-01 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://i.ytimg.com/vi/yFvvAuu_eTw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCNborKSW1tc_PI5vOSzSi8tOrsFg" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Dead Reckoning</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">March 22nd, 2023</span>
+                        <span class="countdown-timer"></span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="show-item">
-            <div class="show-details-container">
-                <div class="show-details">
-                    <img src="placeholder.jpg" alt="Band Name" class="band-image"> <!-- Placeholder image as none was provided -->
-                    <div>
-                        <strong><a href="https://youtube.com/@thewhistlesbells" target="_blank">The Whistles & Bells</a></strong><br>
-                        <span>June 3, 2023, 7:00 p.m. Central</span>
+            <div class="show-item" data-show-date="2023-01-01 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://yt3.googleusercontent.com/ytc/AOPolaSo4QvpIeR8CTfKYcxcaTScaEVwoZ5I-izWeAdJ=s176-c-k-c0x00ffffff-no-rj" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Scarecrow with Superunloaded</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">April 12th, 2023</span>
+                        <span class="countdown-timer"></span>
                     </div>
                 </div>
             </div>
+            <div class="show-item" data-show-date="2023-01-01 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/339657422_247718097695319_8911884159354983638_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ndB-wopFG_AAX8iE_1_&_nc_ht=scontent-hou1-1.xx&oh=00_AfAo6cg47SijlgtbPsHB_9_1VOgVt3JizcXoY1ALnlFKEw&oe=64F3DDA4" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>James Christopher</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">April 26th, 2023</span>
+                        <span class="countdown-timer"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="show-item" data-show-date="2023-01-01 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://yt3.googleusercontent.com/Ougw_x3Qs5T-cVvX4iBCpq2E7uH_g1E-SqIq1b0C642A4g1lIkkON_YNMyrQu5LXj0tK6N0AhDM=s176-c-k-c0x00ffffff-no-rj" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Larry Pascal</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">May 10th, 2023</span>
+                        <span class="countdown-timer"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="show-item" data-show-date="2023-01-01 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://i.ytimg.com/vi/n2rxQ6a0MPs/mqdefault.jpg" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Ashley Bean album release party!!</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">May 13th, 2023</span>
+                        <span class="countdown-timer"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="show-item" data-show-date="2023-01-01 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://yt3.googleusercontent.com/ytc/AOPolaSo4QvpIeR8CTfKYcxcaTScaEVwoZ5I-izWeAdJ=s176-c-k-c0x00ffffff-no-rj" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Jimmy Scarecrow Overloaded</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">June 7th, 2023</span>
+                        <span class="countdown-timer"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="show-item" data-show-date="2023-01-01 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://yt3.googleusercontent.com/WXzhdU1N-w1Pd3uf6zP7bUzAbax6BJXPBDeH0VtWGv_6jjrMVEpDB3ESxaqaKilBrOXVPqtP6w=s176-c-k-c0x00ffffff-no-rj" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW!!</strong><br>
+                            <span>Darkstar Saints</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">August 19th, 2023</span>
+                        <span class="countdown-timer"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="featured">
+                <!-- Insert details about Featured artists here. This section is currently empty. -->
+                Featured artists details here.
+            </div>
         </div>
-    </div>
-
-    <div class="tab-content" id="featured">
-        <!-- Insert details about Featured artists here. This section is currently empty. -->
-        Featured artists details here.
-    </div>
-</div>
 
 
-<script>
-    function showTab(tabId) {
-        const contents = document.querySelectorAll('.tab-content');
-        contents.forEach(content => content.classList.remove('active-tab-content'));
+    <script>
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active-tab-content'));
 
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-        document.getElementById(tabId).classList.add('active-tab-content');
-        const activeTab = Array.from(tabs).find(tab => tab.getAttribute('onclick').includes(tabId));
-        activeTab.classList.add('active-tab');
-    }
-
-function movePastShows() {
-    const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-
-
-    const upcomingShows = document.querySelectorAll('#upcoming .show-item');
-    upcomingShows.forEach(show => {
-        const showDate = new Date(show.getAttribute('data-show-date'));
-        const showTime = new Date(showDate.getFullYear(), showDate.getMonth(), showDate.getDate()).getTime(); // Only date parts
-        if (showTime < today) {
-            show.querySelector('.countdown-timer').textContent = ""; // Empty the countdown timer
-            document.getElementById('past').appendChild(show);
+            document.getElementById(tabId).classList.add('active-tab-content');
+            const activeTab = Array.from(tabs).find(tab => tab.getAttribute('onclick').includes(tabId));
+            activeTab.classList.add('active-tab');
         }
-    });
-}
 
+        function movePastShows() {
+            const now = new Date();
 
-function initCountdown() {
-    const showItems = document.querySelectorAll('.show-item');
+            const upcomingShows = document.querySelectorAll('#upcoming .show-item');
+            upcomingShows.forEach(show => {
+                const showDate = new Date(show.getAttribute('data-show-date'));
 
-    showItems.forEach(showItem => {
-        const countdownTimer = showItem.querySelector('.countdown-timer');
-        if (!countdownTimer) {
-            console.error('No countdown timer found for show item:', showItem);
-            return;
+                if (showDate < now) {
+                    show.querySelector('.countdown-timer').textContent = "Show Ended"; // Indicate the show has ended
+                    document.getElementById('past').appendChild(show);
+                }
+            });
         }
 
-        const targetDateUtc = new Date(showItem.getAttribute('data-show-date'));
-        console.log('Target Date:', targetDateUtc);  // Debug log
+        function initCountdown() {
+            const showItems = document.querySelectorAll('.show-item');
 
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = targetDateUtc.getTime() - now;
-            const showOverTime = new Date(targetDateUtc);
-            showOverTime.setHours(showOverTime.getHours() + 12);  // 12 hours after the show
+            showItems.forEach(showItem => {
+                const countdownTimer = showItem.querySelector('.countdown-timer');
+                if (!countdownTimer) {
+                    console.error('No countdown timer found for show item:', showItem);
+                    return;
+                }
 
-            if (distance <= 0 && now < showOverTime.getTime()) {
-                countdownTimer.textContent = "SHOWTIME!";
-            } else if (now >= showOverTime.getTime()) {
-                countdownTimer.textContent = ""; // Empty the countdown timer
-                clearInterval(interval);
-                movePastShows();
-            } else {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                countdownTimer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
+                const targetDateUtc = new Date(showItem.getAttribute('data-show-date'));
+                const showOverTime = new Date(targetDateUtc);
+                showOverTime.setHours(showOverTime.getHours() + 12);  // 12 hours after the show
+
+                const updateTimer = () => {
+                    const now = new Date().getTime();
+                    const distance = targetDateUtc.getTime() - now;
+
+                    if (distance <= 0 && now < showOverTime.getTime()) {
+                        countdownTimer.textContent = "SHOWTIME!";
+                    } else if (now > showOverTime.getTime()) {
+                        countdownTimer.textContent = "Show Ended";
+                        movePastShows();
+                    } else {
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        countdownTimer.textContent = `${hours}h ${minutes}m ${seconds}s`;
+                    }
+                };
+
+                updateTimer();
+                setInterval(updateTimer, 1000);
+            });
+        }
+
+        window.onload = function () {
+            initCountdown();
         };
+    </script>
 
-        updateTimer();
-        const interval = setInterval(updateTimer, 1000);
-    });
-}
-
-
-    window.addEventListener('DOMContentLoaded', () => {
-        movePastShows();
-        initCountdown();
-    });
-
-    setInterval(movePastShows, 60000); // Check every minute
-</script>
 </body>
-
 </html>
