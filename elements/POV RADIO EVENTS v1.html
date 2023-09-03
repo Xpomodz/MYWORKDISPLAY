@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -74,6 +75,8 @@
             display: none;
             padding: 20px;
             border-radius: 10px;
+            height: max-content;
+            background-color: #5707a7;
         }
 
         .active-tab-content {
@@ -210,6 +213,8 @@
 
         <div class="tab-content active-tab-content" id="upcoming">
 
+
+            <!--SHOW OVER-->
             <div class="show-item" data-show-date="2023-09-02 18:00:00">
                 <div class="show-details-container">
                     <div class="show-details">
@@ -226,6 +231,52 @@
                 </div>
             </div>
 
+            <!--            <div class="show-item" data-show-date="0000-00-00 18:00:00">
+            <div class="show-details-container">
+                <div class="show-details">
+                    <img src="IMAGE HERE" alt="Band Name" class="band-image">
+                    <div>
+                        <strong>SHOW NAME</strong><br>
+                        <span>SHOW TITLE!</span>
+                    </div>
+                </div>
+                <div class="date-countdown">
+                    <span class="show-date">DATE HERE</span>
+                    <span class="countdown-timer"></span>
+                </div>
+            </div>
+        </div>-->
+            <div class="show-item" data-show-date="2023-09-06 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t1.6435-9/160726300_221727755979466_2315428375364364975_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=fV9J2DjpGLUAX_ggsiZ&_nc_ht=scontent-hou1-1.xx&oh=00_AfBegNF6xqZEbakzgB_ukD9j5pDL5wdKIXhhB1XAAbhm_Q&oe=65162679" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW</strong><br>
+                            <span>WEDNESDAY!</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">September, 6th 2023</span>
+                        <span class="countdown-timer"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="show-item" data-show-date="2023-09-09 18:00:00">
+                <div class="show-details-container">
+                    <div class="show-details">
+                        <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t1.6435-9/160726300_221727755979466_2315428375364364975_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=fV9J2DjpGLUAX_ggsiZ&_nc_ht=scontent-hou1-1.xx&oh=00_AfBegNF6xqZEbakzgB_ukD9j5pDL5wdKIXhhB1XAAbhm_Q&oe=65162679" alt="Band Name" class="band-image">
+                        <div>
+                            <strong>PSYCHOMOM SHOW</strong><br>
+                            <span>SATURDAY!</span>
+                        </div>
+                    </div>
+                    <div class="date-countdown">
+                        <span class="show-date">September, 9th 2023</span>
+                        <span class="countdown-timer"></span>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -384,73 +435,95 @@
         </div>
 
 
-    <script>
-        function showTab(tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active-tab-content'));
+        <script>
+            function showTab(tabId) {
+                const contents = document.querySelectorAll('.tab-content');
+                contents.forEach(content => content.classList.remove('active-tab-content'));
 
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => tab.classList.remove('active-tab'));
+                const tabs = document.querySelectorAll('.tab');
+                tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-            document.getElementById(tabId).classList.add('active-tab-content');
-            const activeTab = Array.from(tabs).find(tab => tab.getAttribute('onclick').includes(tabId));
-            activeTab.classList.add('active-tab');
-        }
+                document.getElementById(tabId).classList.add('active-tab-content');
+                const activeTab = Array.from(tabs).find(tab => tab.getAttribute('onclick').includes(tabId));
+                activeTab.classList.add('active-tab');
+            }
 
-        function movePastShows() {
-            const now = new Date();
+            function movePastShows() {
+                const now = new Date();
+                const fiveHoursAgo = new Date(now.getTime() - (5 * 60 * 60 * 1000));
 
-            const upcomingShows = document.querySelectorAll('#upcoming .show-item');
-            upcomingShows.forEach(show => {
-                const showDate = new Date(show.getAttribute('data-show-date'));
+                const upcomingShows = document.querySelectorAll('#upcoming .show-item');
+                const pastShowsContainer = document.getElementById('past');
 
-                if (showDate < now) {
-                    show.querySelector('.countdown-timer').textContent = "Show Ended"; // Indicate the show has ended
-                    document.getElementById('past').appendChild(show);
-                }
-            });
-        }
+                upcomingShows.forEach(show => {
+                    const showDate = new Date(show.getAttribute('data-show-date'));
+                    const countdownTimer = show.querySelector('.countdown-timer');
 
-        function initCountdown() {
-            const showItems = document.querySelectorAll('.show-item');
+                    if (showDate <= now) {
+                        if (!show.classList.contains('past-show')) { // Check if it's not already moved
+                            show.classList.add('past-show'); // Add a class to indicate past shows
+                            pastShowsContainer.appendChild(show);
+                        }
 
-            showItems.forEach(showItem => {
-                const countdownTimer = showItem.querySelector('.countdown-timer');
-                if (!countdownTimer) {
-                    console.error('No countdown timer found for show item:', showItem);
-                    return;
-                }
-
-                const targetDateUtc = new Date(showItem.getAttribute('data-show-date'));
-                const showOverTime = new Date(targetDateUtc);
-                showOverTime.setHours(showOverTime.getHours() + 12);  // 12 hours after the show
-
-                const updateTimer = () => {
-                    const now = new Date().getTime();
-                    const distance = targetDateUtc.getTime() - now;
-
-                    if (distance <= 0 && now < showOverTime.getTime()) {
-                        countdownTimer.textContent = "SHOWTIME!";
-                    } else if (now > showOverTime.getTime()) {
-                        countdownTimer.textContent = "Show Ended";
-                        movePastShows();
-                    } else {
-                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                        countdownTimer.textContent = `${hours}h ${minutes}m ${seconds}s`;
+                        if (showDate <= fiveHoursAgo) {
+                            countdownTimer.textContent = "Show Over"; // Show Over for shows more than 5 hours ago
+                        } else {
+                            countdownTimer.textContent = "Show Ended"; // Show Ended for shows within the last 5 hours
+                        }
                     }
-                };
+                });
+            }
 
-                updateTimer();
-                setInterval(updateTimer, 1000);
-            });
-        }
+            function initCountdown() {
+                const showItems = document.querySelectorAll('.show-item');
+                const countdownIntervals = {}; // To store interval IDs
 
-        window.onload = function () {
-            initCountdown();
-        };
-    </script>
+                showItems.forEach(showItem => {
+                    const countdownTimer = showItem.querySelector('.countdown-timer');
+                    if (!countdownTimer) {
+                        console.error('No countdown timer found for show item:', showItem);
+                        return;
+                    }
+
+                    const showDateStr = showItem.getAttribute('data-show-date');
+                    const targetDateUtc = new Date(showDateStr.replace(/-/g, '/'));
+
+                    const updateTimer = () => {
+                        const currentTime = new Date();
+                        const distance = targetDateUtc.getTime() - currentTime.getTime();
+
+                        if (distance <= 0) {
+                            countdownTimer.textContent = "Show Ended";
+                            clearInterval(countdownIntervals[showItem.id]);
+                        } else if (distance <= 5 * 60 * 60 * 1000) { // 5 hours in milliseconds
+                            countdownTimer.textContent = "Show Over";
+                        } else {
+                            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                            countdownTimer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                            if (distance <= 5 * 60 * 1000) { // 5 minutes in milliseconds
+                                countdownTimer.textContent = "SHOWTIME!";
+                            }
+                        }
+                    };
+
+                    updateTimer();
+                    countdownIntervals[showItem.id] = setInterval(updateTimer, 1000);
+                });
+
+                movePastShows();
+            }
+
+            window.onload = function () {
+                initCountdown(); // Initialize countdown timers
+                movePastShows(); // Move past shows and update texts
+            };
+        </script>
+
+
 
 </body>
 </html>
